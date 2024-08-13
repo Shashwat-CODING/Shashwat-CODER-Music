@@ -21,6 +21,11 @@
             padding: 10px 20px;
             background-color: #1e1e1e; /* Dark background for header */
             text-align: left; /* Align text to the left */
+            transition: background-color 0.3s ease; /* Smooth background transition */
+        }
+
+        .branding:hover {
+            background-color: #333; /* Change background color on hover */
         }
 
         .coders {
@@ -44,6 +49,12 @@
             font-size: 16px;
             margin: 0 auto; /* Center align */
             display: block; /* Center align */
+            transition: border 0.3s ease; /* Smooth border transition */
+        }
+
+        .search-bar input:focus {
+            border-color: #2196F3; /* Change border color on focus */
+            outline: none; /* Remove outline */
         }
 
         .playlist {
@@ -64,11 +75,12 @@
             border-radius: 10px; /* Rounded corners for playlist item */
             overflow: hidden;
             border: 2px solid transparent;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, transform 0.3s; /* Smooth border and transform transitions */
         }
 
         .playlist-item:hover {
             border-color: #2196F3;
+            transform: scale(1.02); /* Slight zoom effect on hover */
         }
 
         .playlist-item img {
@@ -76,6 +88,11 @@
             height: 180px;
             object-fit: cover;
             border-radius: 10px; /* Rounded corners for images */
+            transition: transform 0.3s ease; /* Smooth image transition */
+        }
+
+        .playlist-item img:hover {
+            transform: scale(1.05); /* Zoom effect on image hover */
         }
 
         .video-title {
@@ -94,6 +111,7 @@
             overflow: hidden;
             border-radius: 10px;
             z-index: 1;
+            transition: transform 0.5s ease; /* Smooth loading animation */
         }
 
         iframe {
@@ -120,6 +138,20 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
         }
 
+        .controls button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+        }
+
+        .controls button:hover {
+            background-color: #666;
+        }
+
         .progress-bar {
             flex: 1;
             height: 8px; /* Reduce the height of the progress bar */
@@ -128,6 +160,11 @@
             position: relative;
             cursor: pointer;
             border-radius: 2px; /* Rounded corners for progress bar */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+        }
+
+        .progress-bar:hover {
+            background-color: #555; /* Change color on hover */
         }
 
         .progress {
@@ -136,19 +173,6 @@
             background-color: #2196F3;
             position: absolute;
             border-radius: 2px; /* Rounded corners for progress */
-        }
-
-        button {
-            background-color: #555;
-            color: white;
-            border: none;
-            padding: 8px;
-            cursor: pointer;
-            border-radius: 5px; /* Rounded corners */
-        }
-
-        button:hover {
-            background-color: #666;
         }
     </style>
 </head>
@@ -194,18 +218,6 @@
     <div class="playlist-item" onclick="loadVideo('LmM6L1NgpUk', 'Urban Vibes')">
         <img src="https://img.youtube.com/vi/LmM6L1NgpUk/0.jpg" alt="Urban Vibes Video">
         <div class="video-title">Urban Vibes</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('qPQLbTt7o8g', 'Jazz Fusion')">
-        <img src="https://img.youtube.com/vi/qPQLbTt7o8g/0.jpg" alt="Jazz Fusion Video">
-        <div class="video-title">Jazz Fusion</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('CRlQuL1NwRY', 'Deep Focus')">
-        <img src="https://img.youtube.com/vi/CRlQuL1NwRY/0.jpg" alt="Deep Focus Video">
-        <div class="video-title">Deep Focus</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('hY4c1um2wmA', 'Morning Coffee')">
-        <img src="https://img.youtube.com/vi/hY4c1um2wmA/0.jpg" alt="Morning Coffee Video">
-        <div class="video-title">Morning Coffee</div>
     </div>
     <div class="playlist-item" onclick="loadVideo('G6ueB7GAX2g', 'Evening Chill')">
         <img src="https://img.youtube.com/vi/G6ueB7GAX2g/0.jpg" alt="Evening Chill Video">
