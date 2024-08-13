@@ -126,7 +126,6 @@
             color: white;
             padding: 10px 20px; /* Add padding inside the controls */
             display: flex;
-            justify-content: space-between;
             align-items: center;
             border-top: 1px solid #444;
             position: fixed;
@@ -138,7 +137,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
         }
 
-        .controls button {
+        .controls button, .controls input[type="range"] {
             background-color: #555;
             color: white;
             border: none;
@@ -148,7 +147,7 @@
             transition: background-color 0.3s ease; /* Smooth background color transition */
         }
 
-        .controls button:hover {
+        .controls button:hover, .controls input[type="range"]:hover {
             background-color: #666;
         }
 
@@ -173,6 +172,11 @@
             background-color: #2196F3;
             position: absolute;
             border-radius: 2px; /* Rounded corners for progress */
+        }
+
+        .volume-control {
+            margin-left: 10px;
+            width: 100px; /* Set width for volume control */
         }
     </style>
 </head>
@@ -234,6 +238,7 @@
     <div class="progress-bar" onclick="seekVideo(event)">
         <div class="progress" id="progress"></div>
     </div>
+    <input type="range" id="volume" class="volume-control" min="0" max="100" value="50" onchange="setVolume(this.value)">
     <button onclick="muteUnmute()">Mute/Unmute</button>
 </div>
 
@@ -321,6 +326,10 @@
             var title = item.querySelector('.video-title').innerText.toLowerCase();
             item.style.display = title.includes(input) ? '' : 'none';
         });
+    }
+
+    function setVolume(value) {
+        player.setVolume(value);
     }
 
     function onPlayerStateChange(event) {
