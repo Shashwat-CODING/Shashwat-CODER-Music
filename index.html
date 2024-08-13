@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shashwat coder MUSIC</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #121212; /* Dark mode background */
+            color: #e0e0e0; /* Dark mode text color */
+            font-family: Arial, sans-serif;
+        }
+
+        .search-bar {
+            padding: 100opx;
+            background-color: #1e1e1e;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 80%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #333;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+
+        .playlist {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 10px;
+            background-color: #1e1e1e; /* Dark mode playlist background */
+            border-bottom: 1px solid #333; /* Dark mode border */
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-bottom: 70px; /* Space for controls */
+        }
+
+        .playlist-item {
+            width: 320px;
+            cursor: pointer;
+            border-radius: 10px; /* Rounded corners for playlist item */
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .playlist-item:hover {
+            border-color: #2196F3;
+        }
+
+        .playlist-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px; /* Rounded corners for images */
+        }
+
+        .video-title {
+            text-align: center;
+            padding: 5px;
+            font-size: 14px;
+            color: #e0e0e0; /* Dark mode text color */
+        }
+
+        .video-container {
+            position: fixed;
+            right: 10px;
+            bottom: 60px; /* Place video 5px above the controls */
+            width: 70px;
+            height: 35px;
+            overflow: hidden;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .controls {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #444;
+            position: fixed;
+            bottom: 0;
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            z-index: 2; /* Ensure controls are above other elements */
+            border-radius: 10px; /* Rounded corners for controls */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 4px;
+            background-color: #444;
+            margin: 0 10px;
+            position: relative;
+            cursor: pointer;
+            border-radius: 2px; /* Rounded corners for progress bar */
+        }
+
+        .progress {
+            width: 0;
+            height: 100%;
+            background-color: #2196F3;
+            position: absolute;
+            border-radius: 2px; /* Rounded corners for progress */
+        }
+
+        button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search videos by title..." oninput="filterVideos()">
+</div>
+
+<div class="playlist" id="playlist">
+    <div class="playlist-item" onclick="loadVideo('WOdnRhWeHoY', 'Sample Video Title 1')">
+        <img src="https://img.youtube.com/vi/WOdnRhWeHoY/0.jpg" alt="Video 1">
+        <div class="video-title">Daku</div>
+    </div>
+    <div class="playlist-item" onclick="loadVideo('4tywp83zkmk', 'Sample Video Title 2')">
+        <img src="https://img.youtube.com/vi/4tywp83zkmk/0.jpg" alt="Video 2">
+        <div class="video-title">Cheques</div>
+    </div>
+    <div class="playlist-item" onclick="loadVideo('bzSn6AKLkMI', 'Sample Video Title 3')">
+        <img src="https://img.youtube.com/vi/bzSn6AKLkMI/0.jpg" alt="Video 3">
+        <div class="video-title">9:45</div>
+    </div>
+    <div class="playlist-item" onclick="loadVideo('d2ofxg8pHfQ', 'Sample Video Title 4')">
+        <img src="https://img.youtube.com/vi/d2ofxg8pHfQ/0.jpg" alt="Video 4">
+        <div class="video-title">King shit</div>
+    </div>
+</div>
+
+<div class="video-container">
+    <div id="video"></div>
+</div>
+
+<div class="controls">
+    <button onclick="playPause()">Play/Pause</button>
+    <div class="progress-bar" onclick="seekVideo(event)">
+        <div class="progress" id="progress"></div>
+    </div>
+    <button onclick="muteUnmute()">Mute/Unmute</button>
+</div>
+
+<script>
+    var player;
+    var progressBar = document.getElementById('progress');
+    var progressInterval;
+
+    // Load the YouTube IFrame API script
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // This function is called by the YouTube API once it's ready
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('video', {
+            height: '169',
+            width: '300',
+            videoId: 'PtDCI0gfvFc', // Default video
+            playerVars: {
+                'controls': 0,  // Hide default controls
+                'showinfo': 0,
+                'rel': 0
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+        updateProgress();
+    }
+
+    function playPause() {
+        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+            player.pauseVideo();
+        } else {
+            player.playVideo();
+        }
+    }
+
+    function muteUnmute() {
+        if (player.isMuted()) {
+            player.unMute();
+        } else {
+            player.mute();
+        }
+    }
+
+    function updateProgress() {
+        if (progressInterval) {
+            clearInterval(progressInterval);
+        }
+        progressInterval = setInterval(function() {
+            if (player && player.getDuration) {
+                var duration = player.getDuration();
+                var currentTime = player.getCurrentTime();
+                var progressPercentage = (currentTime / duration) * 100;
+                progressBar.style.width = progressPercentage + '%';
+            }
+        }, 1000);
+    }
+
+    function seekVideo(event) {
+        var progressBarContainer = event.currentTarget;
+        var rect = progressBarContainer.getBoundingClientRect();
+        var offsetX = event.clientX - rect.left;
+        var width = progressBarContainer.clientWidth;
+        var clickPositionRatio = offsetX / width;
+        var newTime = player.getDuration() * clickPositionRatio;
+        player.seekTo(newTime);
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+            updateProgress();
+        }
+    }
+
+    function loadVideo(videoId, title) {
+        if (player) {
+            player.loadVideoById(videoId);
+            document.querySelector('.video-title').innerText = title;
+        }
+    }
+
+    // Search functionality
+    function filterVideos() {
+        var input = document.getElementById('searchInput');
+        var filter = input.value.toLowerCase();
+        var playlistItems = document.querySelectorAll('.playlist-item');
+        playlistItems.forEach(item => {
+            var title = item.querySelector('.video-title').textContent.toLowerCase();
+            item.style.display = title.includes(filter) ? '' : 'none';
+        });
+    }
+</script>
+
+</body>
+</html>
