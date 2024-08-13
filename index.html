@@ -138,10 +138,24 @@
         button:hover {
             background-color: #666;
         }
+.branding {
+    font-size: 24px; /* Increase font size */
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #1e1e1e; /* Dark background for header */
+    text-align: left; /* Align text to the left */
+}
+
+.coders {
+    color: yellow; /* Change "CODERS" to yellow */
+}
+
     </style>
 </head>
 <body>
-
+    <header class="branding">
+        Shashwat <span class="coders">CODERS</span> Music
+    </header>
 <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search videos by title..." oninput="filterVideos()">
 </div>
