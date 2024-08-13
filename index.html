@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shashwat coder MUSIC</title>
+    <title>Shashwat CODERS Music</title>
     <style>
         body {
             margin: 0;
@@ -15,26 +15,38 @@
             font-family: Arial, sans-serif;
         }
 
-.search-bar {
-    background-color: #1e1e1e;
-    text-align: center;
-    padding: 40px 0; /* Adjust padding to move it down */
-    margin-top: 20px; /* Add margin to bring it lower */
-}
+        .branding {
+            font-size: 24px; /* Increase font size */
+            font-weight: bold;
+            padding: 10px 20px;
+            background-color: #1e1e1e; /* Dark background for header */
+            text-align: left; /* Align text to the left */
+        }
 
-.search-bar input {
-    width: 50%; /* Further reduce width */
-    padding: 6px; /* Slightly reduce padding */
-    border-radius: 30px; /* Increase border-radius for more curve */
-    border: 1px solid #333;
-    background-color: #333;
-    color: #e0e0e0;
-    font-size: 16px;
-    margin: 0 auto; /* Center align */
-    display: block; /* Center align */
-}
+        .coders {
+            color: yellow; /* Change "CODERS" to yellow */
+        }
 
-     .playlist {
+        .search-bar {
+            background-color: #1e1e1e;
+            text-align: center;
+            padding: 20px 0; /* Adjust padding to move it down */
+            margin-top: 10px; /* Add margin to bring it lower */
+        }
+
+        .search-bar input {
+            width: 40%; /* Further reduce width */
+            padding: 8px; /* Slightly reduce padding */
+            border-radius: 20px; /* Increase border-radius for more curve */
+            border: 1px solid #333;
+            background-color: #333;
+            color: #e0e0e0;
+            font-size: 16px;
+            margin: 0 auto; /* Center align */
+            display: block; /* Center align */
+        }
+
+        .playlist {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
@@ -77,8 +89,8 @@
             position: fixed;
             right: 10px;
             bottom: 60px; /* Place video 5px above the controls */
-            width: 70px;
-            height: 35px;
+            width: 300px;
+            height: 169px;
             overflow: hidden;
             border-radius: 10px;
             z-index: 1;
@@ -138,24 +150,14 @@
         button:hover {
             background-color: #666;
         }
-.branding {
-    font-size: 24px; /* Increase font size */
-    font-weight: bold;
-    padding: 10px 20px;
-    background-color: #1e1e1e; /* Dark background for header */
-    text-align: left; /* Align text to the left */
-}
-
-.coders {
-    color: yellow; /* Change "CODERS" to yellow */
-}
-
     </style>
 </head>
 <body>
-    <header class="branding">
-        Shashwat <span class="coders">CODERS</span> Music
-    </header>
+
+<header class="branding">
+    Shashwat <span class="coders">CODERS</span> Music
+</header>
+
 <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search videos by title..." oninput="filterVideos()">
 </div>
@@ -262,9 +264,7 @@
         var clickPositionRatio = offsetX / width;
         var newTime = player.getDuration() * clickPositionRatio;
         player.seekTo(newTime);
-    }
-
-    function onPlayerStateChange(event) {
+    }function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING) {
             updateProgress();
         }
