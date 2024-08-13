@@ -103,32 +103,33 @@
             border-radius: 10px;
         }
 
-        .controls {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #444;
-            position: fixed;
-            bottom: 0;
-            width: calc(100% - 20px);
-            margin: 0 10px;
-            z-index: 2; /* Ensure controls are above other elements */
-            border-radius: 10px; /* Rounded corners for controls */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
-        }
+       .controls {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px; /* Add padding inside the controls */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #444;
+    position: fixed;
+    bottom: 0;
+    left: 0; /* Ensure controls touch the left corner */
+    right: 0; /* Ensure controls touch the right corner */
+    z-index: 2; /* Ensure controls are above other elements */
+    border-radius: 10px; /* Rounded corners for controls */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
+}
 
-        .progress-bar {
-            flex: 1;
-            height: 4px;
-            background-color: #444;
-            margin: 0 10px;
-            position: relative;
-            cursor: pointer;
-            border-radius: 2px; /* Rounded corners for progress bar */
-        }
+.progress-bar {
+    flex: 1;
+    height: 3px; /* Reduce the height of the progress bar */
+    background-color: #444;
+    margin: 0 10px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 2px; /* Rounded corners for progress bar */
+}
+
 
         .progress {
             width: 0;
