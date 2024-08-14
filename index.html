@@ -8,62 +8,63 @@
     
     <style>
         .logo {
-    width: 60px; /* Set the size of the logo */
-    height: 60px; /* Ensure the logo is a square */
-    border-radius: 50%; /* Make the logo round */
-    margin-right: 15px; /* Add some space between the logo and text */
-    vertical-align: middle; /* Align the logo with the text */
-}
-body {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        body {
             margin: 0;
             display: flex;
             flex-direction: column;
             height: 100vh;
-            background-color: #121212; /* Dark mode background */
-            color: #e0e0e0; /* Dark mode text color */
+            background-color: #121212;
+            color: #e0e0e0;
             font-family: Arial, sans-serif;
         }
 
         .branding {
-            font-size: 50px; /* Increased font size */
+            font-size: 50px;
             font-weight: bold;
             padding: 10px 20px;
-            background-color: #1e1e1e; /* Dark background for header */
-            text-align: left; /* Align text to the left */
-            transition: background-color 0.3s ease; /* Smooth background transition */
+            background-color: #1e1e1e;
+            text-align: left;
+            transition: background-color 0.3s ease;
         }
 
         .branding:hover {
-            background-color: #333; /* Change background color on hover */
+            background-color: #333;
         }
 
         .coders {
-            color: yellow; /* Change "CODERS" to yellow */
+            color: yellow;
         }
 
         .search-bar {
             background-color: #1e1e1e;
             text-align: center;
-            padding: 20px 0; /* Adjust padding to move it down */
-            margin-top: 10px; /* Add margin to bring it lower */
+            padding: 20px 0;
+            margin-top: 10px;
         }
 
         .search-bar input {
-            width: 40%; /* Further reduce width */
-            padding: 8px; /* Slightly reduce padding */
-            border-radius: 20px; /* Increase border-radius for more curve */
+            width: 40%;
+            padding: 8px;
+            border-radius: 20px;
             border: 1px solid #333;
             background-color: #333;
             color: #e0e0e0;
             font-size: 16px;
-            margin: 0 auto; /* Center align */
-            display: block; /* Center align */
-            transition: border 0.3s ease; /* Smooth border transition */
+            margin: 0 auto;
+            display: block;
+            transition: border 0.3s ease;
         }
 
         .search-bar input:focus {
-            border-color: #2196F3; /* Change border color on focus */
-            outline: none; /* Remove outline */
+            border-color: #2196F3;
+            outline: none;
         }
 
         .playlist {
@@ -71,59 +72,58 @@ body {
             flex-wrap: wrap;
             gap: 15px;
             padding: 10px;
-            background-color: #1e1e1e; /* Dark mode playlist background */
-            border-bottom: 1px solid #333; /* Dark mode border */
+            background-color: #1e1e1e;
+            border-bottom: 1px solid #333;
             overflow-y: auto;
             flex-grow: 1;
-            padding-bottom: 70px; /* Space for controls */
+            padding-bottom: 70px;
         }
 
         .playlist-item {
             width: 320px;
             cursor: pointer;
-            border-radius: 10px; /* Rounded corners for playlist item */
+            border-radius: 10px;
             overflow: hidden;
             border: 2px solid transparent;
-            transition: border-color 0.3s, transform 0.3s; /* Smooth border and transform transitions */
+            transition: border-color 0.3s, transform 0.3s;
         }
 
         .playlist-item:hover {
             border-color: #2196F3;
-            transform: scale(1.02); /* Slight zoom effect on hover */
+            transform: scale(1.02);
         }
 
         .playlist-item img {
             width: 100%;
             height: 180px;
             object-fit: cover;
-            border-radius: 10px; /* Rounded corners for images */
-            transition: transform 0.3s ease; /* Smooth image transition */
+            border-radius: 10px;
+            transition: transform 0.3s ease;
         }
 
         .playlist-item img:hover {
-            transform: scale(1.05); /* Zoom effect on image hover */
+            transform: scale(1.05);
         }
 
         .video-title {
             text-align: center;
             padding: 5px;
             font-size: 14px;
-            color: #e0e0e0; /* Dark mode text color */
+            color: #e0e0e0;
         }
 
-    .video-container {
-    position: fixed;
-    right: 0;
-    bottom: 50px;
-    width: 300px; /* You can keep this or adjust */
-    height: 169px; /* Maintain 16:9 ratio */
-    overflow: hidden;
-    border-radius: 10px;
-    z-index: 1;
-    visibility: hidden; /* This hides the player */
-    transition: transform 0.5s ease;
-}
-
+        .video-container {
+            position: fixed;
+            right: 0;
+            bottom: 50px;
+            width: 300px;
+            height: 169px;
+            overflow: hidden;
+            border-radius: 10px;
+            z-index: 1;
+            visibility: hidden;
+            transition: transform 0.5s ease;
+        }
 
         iframe {
             width: 100%;
@@ -135,17 +135,17 @@ body {
         .controls {
             background-color: #333;
             color: white;
-            padding: 10px 20px; /* Add padding inside the controls */
+            padding: 10px 20px;
             display: flex;
             align-items: center;
             border-top: 1px solid #444;
             position: fixed;
             bottom: 0;
-            left: 0; /* Ensure controls touch the left corner */
-            right: 0; /* Ensure controls touch the right corner */
-            z-index: 2; /* Ensure controls are above other elements */
-            border-radius: 10px; /* Rounded corners for controls */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
+            left: 0;
+            right: 0;
+            z-index: 2;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .controls button, .controls input[type="range"] {
@@ -154,8 +154,8 @@ body {
             border: none;
             padding: 8px;
             cursor: pointer;
-            border-radius: 5px; /* Rounded corners */
-            transition: background-color 0.3s ease; /* Smooth background color transition */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         .controls button:hover, .controls input[type="range"]:hover {
@@ -164,17 +164,17 @@ body {
 
         .progress-bar {
             flex: 1;
-            height: 8px; /* Reduce the height of the progress bar */
+            height: 8px;
             background-color: #444;
             margin: 0 10px;
             position: relative;
             cursor: pointer;
-            border-radius: 2px; /* Rounded corners for progress bar */
-            transition: background-color 0.3s ease; /* Smooth background color transition */
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
         }
 
         .progress-bar:hover {
-            background-color: #555; /* Change color on hover */
+            background-color: #555;
         }
 
         .progress {
@@ -182,27 +182,51 @@ body {
             height: 100%;
             background-color: #2196F3;
             position: absolute;
-            border-radius: 2px; /* Rounded corners for progress */
+            border-radius: 2px;
         }
 
         .volume-control {
             margin-left: 10px;
-            width: 100px; /* Set width for volume control */
+            width: 100px;
         }
 
         @media (max-width: 600px) {
             .branding {
                 font-size: 30px;
             }
+
             .search-bar input {
                 width: 80%;
             }
+
             .playlist-item {
                 width: 90%;
             }
+
             .video-container {
                 width: 100%;
-                height: auto; /* Maintain aspect ratio */
+                height: auto;
+            }
+
+            .progress-bar {
+                height: 12px;
+                margin: 0 15px;
+            }
+
+            .controls {
+                padding: 15px;
+                flex-direction: column;
+            }
+
+            .controls button, .controls input[type="range"] {
+                margin-bottom: 10px;
+                width: 100%;
+                font-size: 14px;
+            }
+
+            .volume-control {
+                width: 100%;
+                margin-left: 0;
             }
         }
     </style>
