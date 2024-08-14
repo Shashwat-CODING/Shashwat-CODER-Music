@@ -185,11 +185,6 @@
             border-radius: 2px;
         }
 
-        .volume-control {
-            margin-left: 10px;
-            width: 100px;
-        }
-
         @media (max-width: 600px) {
             .branding {
                 font-size: 30px;
@@ -218,13 +213,11 @@
                 flex-direction: column;
             }
 
-            .controls button, .controls input[type="range"] {
+            .controls button {
                 margin-bottom: 10px;
                 width: 100%;
                 font-size: 14px;
             }
-
-
         }
     </style>
 </head>
@@ -240,42 +233,43 @@
 </div>
 
 <div class="playlist" id="playlist">
-    <div class="playlist-item" onclick="loadVideo('nAxZ-D7DvNg', 'Daku Remix by Shashwaat')">
-        <img src="https://img.youtube.com/vi/nAxZ-D7DvNg/0.jpg" alt="Daku Video">
-        <div class="video-title">Daku Remix by Shashwaat</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('ubnNbUhCON8', 'Daku Remix by Shashwaat')">
-        <img src="https://img.youtube.com/vi/ubnNbUhCON8/0.jpg" alt="Cheques Video">
-        <div class="video-title">Cheques Remix by Shashwat</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('8VmrFxYG28w', 'Daku Remix by Shashwaat')">
-        <img src="https://img.youtube.com/vi/8VmrFxYG28w/0.jpg" alt="9:45 Video">
-        <div class="video-title">Baller Remix by Shashwat</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('YOXEg3pLsRA', 'Daku Remix by Shashwaat')">
-        <img src="https://img.youtube.com/vi/YOXEg3pLsRA/0.jpg" alt="King Shit Video">
-        <div class="video-title">295 Remix by Shashwat</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('LXGiCaBzfcw', 'Daku Remix by Shashwaat')">
-        <img src="https://img.youtube.com/vi/LXGiCaBzfcw/0.jpg" alt="Sunny Day Video">
-        <div class="video-title">Check it out Remix by Shashwat</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('1m_D7MWB15k', 'Daku Remix by Shashwaat')">
-        <img src="https://img.youtube.com/vi/1m_D7MWB15k/0.jpg" alt="Relaxing Music Video">
-        <div class="video-title">Relaxing Music</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('Ck-F1IGG2VI', 'Daku Remix by Shashwaat')">
-        <img src="https://img.youtube.com/vi/Ck-F1IGG2VI/0.jpg" alt="Chill Beats Video">
-        <div class="video-title">Chill Beats</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('LmM6L1NgpUk', 'Daku Remix by Shashwaat')">
-        <img src="https://img.youtube.com/vi/LmM6L1NgpUk/0.jpg" alt="Urban Vibes Video">
-        <div class="video-title">Urban Vibes</div>
-    </div>
-    <div class="playlist-item" onclick="loadVideo('G6ueB7GAX2g', 'Daku Remix by Shashwaat')">
-        <img src="https://img.youtube.com/vi/G6ueB7GAX2g/0.jpg" alt="Evening Chill Video">
-        <div class="video-title">Evening Chill</div>
-    </div>
+    <div class="playlist" id="playlist">
+        <div class="playlist-item" onclick="loadVideo('nAxZ-D7DvNg', 'Daku Remix by Shashwaat')">
+            <img src="https://img.youtube.com/vi/nAxZ-D7DvNg/0.jpg" alt="Daku Video">
+            <div class="video-title">Daku Remix by Shashwaat</div>
+        </div>
+        <div class="playlist-item" onclick="loadVideo('ubnNbUhCON8', 'Daku Remix by Shashwaat')">
+            <img src="https://img.youtube.com/vi/ubnNbUhCON8/0.jpg" alt="Cheques Video">
+            <div class="video-title">Cheques Remix by Shashwat</div>
+        </div>
+        <div class="playlist-item" onclick="loadVideo('8VmrFxYG28w', 'Daku Remix by Shashwaat')">
+            <img src="https://img.youtube.com/vi/8VmrFxYG28w/0.jpg" alt="9:45 Video">
+            <div class="video-title">Baller Remix by Shashwat</div>
+        </div>
+        <div class="playlist-item" onclick="loadVideo('YOXEg3pLsRA', 'Daku Remix by Shashwaat')">
+            <img src="https://img.youtube.com/vi/YOXEg3pLsRA/0.jpg" alt="King Shit Video">
+            <div class="video-title">295 Remix by Shashwat</div>
+        </div>
+        <div class="playlist-item" onclick="loadVideo('LXGiCaBzfcw', 'Daku Remix by Shashwaat')">
+            <img src="https://img.youtube.com/vi/LXGiCaBzfcw/0.jpg" alt="Sunny Day Video">
+            <div class="video-title">Check it out Remix by Shashwat</div>
+        </div>
+        <div class="playlist-item" onclick="loadVideo('1m_D7MWB15k', 'Daku Remix by Shashwaat')">
+            <img src="https://img.youtube.com/vi/1m_D7MWB15k/0.jpg" alt="Relaxing Music Video">
+            <div class="video-title">Relaxing Music</div>
+        </div>
+        <div class="playlist-item" onclick="loadVideo('Ck-F1IGG2VI', 'Daku Remix by Shashwaat')">
+            <img src="https://img.youtube.com/vi/Ck-F1IGG2VI/0.jpg" alt="Chill Beats Video">
+            <div class="video-title">Chill Beats</div>
+        </div>
+        <div class="playlist-item" onclick="loadVideo('LmM6L1NgpUk', 'Daku Remix by Shashwaat')">
+            <img src="https://img.youtube.com/vi/LmM6L1NgpUk/0.jpg" alt="Urban Vibes Video">
+            <div class="video-title">Urban Vibes</div>
+        </div>
+        <div class="playlist-item" onclick="loadVideo('G6ueB7GAX2g', 'Daku Remix by Shashwaat')">
+            <img src="https://img.youtube.com/vi/G6ueB7GAX2g/0.jpg" alt="Evening Chill Video">
+            <div class="video-title">Evening Chill</div>
+        </div>
 </div>
 
 <div class="video-container">
@@ -287,7 +281,6 @@
     <div class="progress-bar" onclick="seekVideo(event)">
         <div class="progress" id="progress"></div>
     </div>
-    <input type="range" id="volume" class="volume-control" min="0" max="100" value="50" onchange="setVolume(this.value)">
     <button aria-label="Mute/Unmute" onclick="muteUnmute()">Mute/Unmute</button>
 </div>
 
@@ -377,15 +370,9 @@
         });
     }
 
-    function setVolume(value) {
-        player.setVolume(value);
-        localStorage.setItem('volume', value);
-    }
-
     window.onload = function() {
         const savedVolume = localStorage.getItem('volume');
         if (savedVolume) {
-            document.getElementById('volume').value = savedVolume;
             player.setVolume(savedVolume);
         }
     };
