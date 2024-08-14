@@ -111,17 +111,19 @@ body {
             color: #e0e0e0; /* Dark mode text color */
         }
 
-        .video-container {
-            position: fixed;
-            right: 0px;
-            bottom: 50px; /* Adjust to give space for the controls */
-            width: 3px; /* Set width for the video player */
-            height: 1px; /* Set height for the video player */
-            overflow: hidden;
-            border-radius: 10px;
-            z-index: 1;
-            transition: transform 0.5s ease; /* Smooth loading animation */
-        }
+    .video-container {
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+    width: 300px; /* You can keep this or adjust */
+    height: 169px; /* Maintain 16:9 ratio */
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 1;
+    visibility: hidden; /* This hides the player */
+    transition: transform 0.5s ease;
+}
+
 
         iframe {
             width: 100%;
