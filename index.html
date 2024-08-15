@@ -7,6 +7,38 @@
     <link rel="icon" href="logo.jpg" type="image/jpeg">
     
     <style>
+.branding {
+    position: relative;
+}
+
+.contact-button {
+    top: 30%; /* Adjusted vertical position */
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.developer-button {
+    top: calc(40% + 15px); /* 2px space between buttons */
+    right: 20px;
+}
+
+.contact-button, .developer-button {
+    background-color: yellow;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    display: inline-block;
+}
+
+.contact-button:hover, .developer-button:hover {
+    background-color: #ffd700;
+}
+
         .logo {
             width: 60px;
             height: 60px;
@@ -223,11 +255,13 @@
 </head>
 <body>
 
-<header class="branding">
-    <img src="logo.jpg" alt="Logo" class="logo">
-    Shashwat <span class="coders">CODERS</span> Music
-</header>
-
+    <header class="branding">
+        <img src="logo.jpg" alt="Logo" class="logo">
+        Shashwat <span class="coders">CODERS</span> Music
+        <a href="cont.html" class="contact-button">Contact Us</a>
+        <a href="dev.html" class="developer-button">Developer.</a>
+    </header>
+    
 <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search videos by title..." oninput="filterVideos()">
 </div>
