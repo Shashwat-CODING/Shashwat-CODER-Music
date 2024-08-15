@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact US</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #2d2a3d;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
+            width: 400px;
+        }
+
+        .form-container h1 {
+            text-align: center;
+            color: #f0f0f0;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3b365a;
+            color: white;
+            font-size: 14px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            background-color: #524f6b;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #6a63a1;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #817ab8;
+        }
+
+        .form-container p {
+            text-align: center;
+            margin-top: 15px;
+            color: #d1cfd9;
+        }
+
+        .form-container p a {
+            color: #6a63a1;
+            text-decoration: none;
+        }
+
+        .form-container p a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Submit Your Song</h1>
+        <form id="musicForm" action="mailto:bob17040246@gmail.com" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="song-name">Song Name</label>
+                <input type="text" id="song-name" name="song-name" placeholder="Enter the song name" required>
+            </div>
+            <div class="form-group">
+                <label for="youtube-link">YouTube Link</label>
+                <input type="url" id="youtube-link" name="youtube-link" placeholder="Enter the YouTube link (optional)">
+            </div>
+            <div class="form-group">
+                <label for="suggestions">Suggestions & Improvements</label>
+                <textarea id="suggestions" name="suggestions" placeholder="Share your thoughts (optional)..."></textarea>
+            </div>
+            <button type="button" class="submit-btn" onclick="confirmSubmission()">Submit</button>
+        </form>
+        <p>Want to share more? <a href="#">Contact us here!</a></p>
+    </div>
+
+    <script>
+        function confirmSubmission() {
+            var form = document.getElementById('musicForm');
+            var confirmation = confirm("Your data will be sent via email. After submitting, you will be redirected to your mail app.");
+            if (confirmation) {
+                form.submit();
+            }
+        }
+    </script>
+
+</body>
+</html>
