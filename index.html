@@ -3,421 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shashwat CODERS Music</title>
-    <link rel="icon" href="logo.jpg" type="image/jpeg">
-    
+    <title>Music Player</title>
     <style>
-.branding {
-    position: relative;
-}
-
-.contact-button {
-    top: 30%; /* Adjusted vertical position */
-    right: 20px;
-    transform: translateY(-50%);
-}
-
-.developer-button {
-    top: calc(40% + 15px); /* 2px space between buttons */
-    right: 20px;
-}
-
-.contact-button, .developer-button {
-    background-color: #66fcf1;
-    color: black;
-    padding: 6px 12px;
-    border-radius: 30px;
-    font-size: 14px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    position: absolute;
-    display: inline-block;
-}
-
-.contact-button:hover, .developer-button:hover {
-    background-color: #45a29e;
-}
-
-        .logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            vertical-align: middle;
-        }
-
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(180deg, #121212, #1e1e1e);
+            color: #e0e0e0;
             margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            background-color: #0b0c10;
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(30, 30, 30, 0.9);
             color: #e0e0e0;
-            font-family: Arial, sans-serif;
-        }
-
-        .branding {
-            font-size: 50px;
-            font-weight: bold;
-            padding: 10px 20px;
-            background-color: #1f2833
-            text-align: left;
-            transition: background-color 0.3s ease;
-        }
-
-        .branding:hover {
-            background-color: #333;
-        }
-
-        .coders {
-            color: #66fcf1;
-        }
-
-        .search-bar {
-            background-color: #1f2833;
+            padding: 15px;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
         }
-
-        .search-bar input {
-            width: 40%;
-            padding: 8px;
-            border-radius: 20px;
-            border: 2px solid #66fcf1;
-            background-color: #0b0c10;
-            color: #c5c6c7;
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #ffcc00; /* Bright color for the header */
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .header .contact-button {
+            background: linear-gradient(135deg, #0077ff, #00d084);
+            padding: 12px 24px;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
             font-size: 16px;
-            margin: 0 auto;
-            display: block;
-            transition: border 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: background 0.3s, box-shadow 0.3s;
         }
-
-        .search-bar input:focus {
-            border-color: #45a29e;
+        .header .contact-button:hover {
+            background: linear-gradient(135deg, #005bb5, #00a95a);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+        }
+        .search-container {
+            margin-top: 110px; /* Offset for fixed header and 10px down */
+            text-align: center;
+        }
+        .search-container input {
+            padding: 12px;
+            width: 300px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+            transition: background 0.3s, color 0.3s;
+        }
+        .search-container input:focus {
+            background: rgba(255, 255, 255, 0.2);
             outline: none;
         }
-
-        .playlist {
+        .content {
+            flex: 1;
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            padding: 10px;
-            background-color: #1f2833;
-            border-bottom: 1px solid #333;
-            overflow-y: auto;
-            flex-grow: 1;
-            padding-bottom: 70px;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            margin-top: 20px; /* Adjusted for search bar */
+            padding-bottom: 80px; /* Padding for fixed player */
         }
-
-        .playlist-item {
-            width: 320px;
-            cursor: pointer;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px solid transparent;
-            transition: border-color 0.3s, transform 0.3s;
-            background-color: #0b0c10;
-        }
-
-        .playlist-item:hover {
-            border-color: #66fcf1;
-            transform: scale(1.02);
-        }
-
-        .playlist-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .playlist-item img:hover {
-            transform: scale(1.05);
-        }
-
-        .video-title {
-            text-align: center;
-            padding: 5px;
-            font-size: 14px;
-            color: #e0e0e0;
-        }
-
-        .video-container {
-            position: fixed;
-            right: 0;
-            bottom: 50px;
+        .track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             width: 300px;
-            height: 169px;
-            overflow: hidden;
-            border-radius: 10px;
-            z-index: 1;
-            visibility: hidden;
-            transition: transform 0.5s ease;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        iframe {
+        .track:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+        }
+        .track img {
             width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 10px;
+            height: 200px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            object-fit: cover;
+            filter: brightness(0.8);
         }
-
-      .controls {
-            background-color: #1f2833;
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            border-top: 2px solid #45a29e;
+        .track h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #ffcc00;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+        .player-container {
             position: fixed;
             bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 2;
-            border-radius: 15px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            background: rgba(30, 30, 30, 0.9);
+            padding: 10px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
         }
-
-        .controls button, .controls input[type="range"] {
-            background-color: #45a29e;
-            color: white;
-            border: none;
-            padding: 8px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+        audio {
+            width: 100%;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
         }
-
-        .controls button:hover, .controls input[type="range"]:hover {
-            background-color: #66fcf1;
-        }
-
-        .progress-bar {
-            flex: 1;
-            height: 8px;
-            background-color: #45a29e;
-            margin: 0 10px;
-            position: relative;
-            cursor: pointer;
-            border-radius: 2px;
-            transition: background-color 0.3s ease;
-        }
-
-        .progress-bar:hover {
-            background-color: #66fcf1;
-        }
-
-        .progress {
-            width: 0;
-            height: 100%;
-            background-color: #0b0c10;
-            position: absolute;
-            border-radius: 2px;
-        }
-
         @media (max-width: 600px) {
-            .branding {
-                font-size: 30px;
+            .header h1 {
+                font-size: 22px;
             }
-
-            .search-bar input {
-                width: 80%;
-            }
-
-            .playlist-item {
-                width: 90%;
-            }
-
-            .video-container {
-                width: 100%;
-                height: auto;
-            }
-
-            .progress-bar {
-                height: 12px;
-                margin: 0 15px;
-            }
-
-            .controls {
-                padding: 15px;
-                flex-direction: column;
-            }
-
-            .controls button {
-                margin-bottom: 10px;
+            .search-container input {
                 width: 100%;
                 font-size: 14px;
+            }
+            .track {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
 </head>
 <body>
-
-    <header class="branding">
-        <img src="logo.jpg" alt="Logo" class="logo">
-        Shashwat <span class="coders">CODERS</span> Music
-        <a href="cont.html" class="contact-button">Contact Us</a>
-        <a href="https://github.com/Shashwat-CODING" class="developer-button">Developer.</a>
-    </header>
-    
-<div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search videos by title..." oninput="filterVideos()">
-</div>
-
-<div class="playlist" id="playlist">
-    <div class="playlist" id="playlist">
-        <div class="playlist-item" onclick="loadVideo('nAxZ-D7DvNg', 'Daku Remix by Shashwaat')">
-            <img src="https://img.youtube.com/vi/nAxZ-D7DvNg/0.jpg" alt="Daku Video">
-            <div class="video-title">Daku Remix by Shashwaat</div>
-        </div>
-        <div class="playlist-item" onclick="loadVideo('ubnNbUhCON8', 'Daku Remix by Shashwaat')">
-            <img src="https://img.youtube.com/vi/ubnNbUhCON8/0.jpg" alt="Cheques Video">
-            <div class="video-title">Cheques Remix by Shashwat</div>
-        </div>
-        <div class="playlist-item" onclick="loadVideo('8VmrFxYG28w', 'Daku Remix by Shashwaat')">
-            <img src="https://img.youtube.com/vi/8VmrFxYG28w/0.jpg" alt="9:45 Video">
-            <div class="video-title">Baller Remix by Shashwat</div>
-        </div>
-        <div class="playlist-item" onclick="loadVideo('YOXEg3pLsRA', 'Daku Remix by Shashwaat')">
-            <img src="https://img.youtube.com/vi/YOXEg3pLsRA/0.jpg" alt="King Shit Video">
-            <div class="video-title">295 Remix by Shashwat</div>
-        </div>
-        <div class="playlist-item" onclick="loadVideo('LXGiCaBzfcw', 'Daku Remix by Shashwaat')">
-            <img src="https://img.youtube.com/vi/LXGiCaBzfcw/0.jpg" alt="Sunny Day Video">
-            <div class="video-title">Check it out Remix by Shashwat</div>
-        </div>
-        <div class="playlist-item" onclick="loadVideo('lwr4j2R7WQ4', 'Daku Remix by Shashwaat')">
-            <img src="https://img.youtube.com/vi/lwr4j2R7WQ4/0.jpg" alt="Relaxing Music Video">
-            <div class="video-title">Saari duniya jala denge Remix by Shashwat</div>
-        </div>
-        <div class="playlist-item" onclick="loadVideo('Ck-F1IGG2VI', 'Daku Remix by Shashwaat')">
-            <img src="https://img.youtube.com/vi/Ck-F1IGG2VI/0.jpg" alt="Chill Beats Video">
-            <div class="video-title">Chill Beats</div>
-        </div>
-        <div class="playlist-item" onclick="loadVideo('LmM6L1NgpUk', 'Daku Remix by Shashwaat')">
-            <img src="https://img.youtube.com/vi/LmM6L1NgpUk/0.jpg" alt="Urban Vibes Video">
-            <div class="video-title">Urban Vibes</div>
-        </div>
-        <div class="playlist-item" onclick="loadVideo('G6ueB7GAX2g', 'Daku Remix by Shashwaat')">
-            <img src="https://img.youtube.com/vi/G6ueB7GAX2g/0.jpg" alt="Evening Chill Video">
-            <div class="video-title">Evening Chill</div>
-        </div>
-</div>
-
-<div class="video-container">
-    <div id="video"></div>
-</div>
-
-<div class="controls">
-    <button aria-label="Play/Pause" onclick="playPause()">Play/Pause</button>
-    <div class="progress-bar" onclick="seekVideo(event)">
-        <div class="progress" id="progress"></div>
+    <div class="header">
+        <h1>Music Player</h1>
+        <button class="contact-button" onclick="location.href='cont.html'">Contact Us</button>
     </div>
-    <button aria-label="Mute/Unmute" onclick="muteUnmute()">Mute/Unmute</button>
-</div>
 
-<script>
-    var player;
-    var progressBar = document.getElementById('progress');
-    var progressInterval;
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search songs...">
+    </div>
 
-    // Load the YouTube IFrame API script
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    <div class="content" id="trackList">
+       <!-- Track 1: Daku --> <div class="track" data-src="https://rr6---sn-gwpa-a3ve7.googlevideo.com/videoplayback?expire=1723736785&ei=cc69Zr-_J4eYvcAPz-PCqQs&ip=152.58.128.151&id=o-AN92_gKFKvErRJONtRjH7cMVkEwKYrlV31noKJDK64Vo&itag=139&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=Ze&mm=31%2C29&mn=sn-gwpa-a3ve7%2Csn-gwpa-qxaz&ms=au%2Crdu&mv=m&mvi=6&pl=24&gcr=in&initcwndbps=342500&vprv=1&svpuc=1&mime=audio%2Fmp4&rqh=1&gir=yes&clen=858349&dur=140.515&lmt=1707241575803936&mt=1723714646&fvip=8&keepalive=yes&c=ANDROID_TESTSUITE&txp=2318224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cgcr%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgOUVJ36wmZJknpS4N65cqUAiv_g45v-72JH2ALjTzTfoCIQCyevaRJ5gSoJJjl-NRz2e486hiU9sP65Rr1hDZI67wQg%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AGtxev0wRQIhAOOJULKhBpsjNTIHsa3RYo-DdNtz3RgKInjPGfx49cuXAiB_uChEWjwNhju2r7vLMf4OzkzUKPxMDcLWbJwSlfWnEA%3D%3D"> <img src="https://lh3.googleusercontent.com/JYG_bz1UO9VwtUg-csY6qKvWz-cnPmppVUyQCvtZKkQCXYKBAyRxM6FttTldCVtjfjsru90RrDUQPcxpZA=w544-h544-l90-rj" alt="Daku"> <h3>Daku</h3> </div> <!-- Track 2: Cheques --> <div class="track" data-src="https://rr2---sn-gwpa-8one.googlevideo.com/videoplayback?expire=1723741489&ei=0eC9ZujmGZDCrtoPhsiWcQ&ip=2409%3A40e3%3A3054%3Aa580%3A8000%3A%3A&id=o-AJLFJIArh8A5gL7_hy23LNr7SfokzoyB1U70osNIrN1h&itag=139&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=4Z&mm=31%2C29&mn=sn-gwpa-8one%2Csn-cvh7knzs&ms=au%2Crdu&mv=m&mvi=2&pl=36&gcr=in&initcwndbps=451250&vprv=1&svpuc=1&mime=audio%2Fmp4&rqh=1&gir=yes&clen=1122598&dur=183.756&lmt=1683891463343734&mt=1723719449&fvip=3&keepalive=yes&c=ANDROID_TESTSUITE&txp=2318224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cgcr%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgN0spUoeyIYCbE2c_pyAmhmueU2BbNLPfJSn3Ful7Q8cCIDMmzxiQrRXq6_AjhHNNTbQ0O0lcEW8pUyi-wYQ3DJRP&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AGtxev0wRAIgNOYrSJVgXLZWyfSwlgFxmeo_q_5O2NEC3cOfbcWXMOACIBY-iXJpfXDoVmOdR5GcwNS6L9zyU1fwse1t9H11teTt"> <img src="https://lh3.googleusercontent.com/V_w7m2kuoVshpqcS1-RlEl-aONMQcGjP84WSo1tJS5IU8IDCr0v0s0NBMMGrLXtlL4CNjUKEdXcN3gAy=w544-h544-l90-rj" alt="Cheques"> <h3>Cheques</h3> </div> <!-- Track 3: Kingshit --> <div class="track" data-src="https://rr6---sn-gwpa-qxae7.googlevideo.com/videoplayback?expire=1723741559&ei=F-G9Zo_yJva6rtoP-_r0yQ4&ip=152.59.175.180&id=o-ABuH5xMJgl-XASeUH05nMxAL1Q8r8gVg4I9ZIc12lQj9&itag=139&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=xA&mm=31%2C26&mn=sn-gwpa-qxae7%2Csn-qxaeense&ms=au%2Conr&mv=m&mvi=6&pcm2cms=yes&pl=24&gcr=in&initcwndbps=156250&vprv=1&svpuc=1&mime=audio%2Fmp4&rqh=1&gir=yes&clen=1385833&dur=226.933&lmt=1704172717155128&mt=1723719449&fvip=5&keepalive=yes&c=ANDROID_TESTSUITE&txp=2318224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cgcr%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgUARIODh1nlEApvUd32zM4nahk8DydrEmwbl5qZ8tfTUCIQD_b-SVHKq7-TyhjZn1y9mFMQrqIwKMFtCTVpuDnnZ-oA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=AGtxev0wRAIgR6n7PuJN6864sFfGNSharTK4P822gd7j8avYQFg6hqICIDxKXn_ldcmcs_Jp65JTd6Xiw50NQreOdsC47JxdRMs5"> <img src="https://lh3.googleusercontent.com/5sAOVCBCsvjDwhvdr_AakxsrmLi28MOqvkPI_K39v6jkHIGGI_3yZcAHlauA0PrPx5Te8uEX98zAnyPf=w544-h544-l90-rj" alt="Kingshit"> <h3>Kingshit</h3> </div> <!-- Track 4 --> <div class="track" data-src="https://example.com/sample-track-4.mp3"> <img src="https://via.placeholder.com/300x200?text=Track+4" alt="Track 4"> <h3>Track 4</h3> </div> <!-- Track 5 --> <div class="track" data-src="https://example.com/sample-track-5.mp3"> <img src="https://via.placeholder.com/300x200?text=Track+5" alt="Track 5"> <h3>Track 5</h3> </div> <!-- Track 6 --> <div class="track" data-src="https://example.com/sample-track-6.mp3"> <img src="https://via.placeholder.com/300x200?text=Track+6" alt="Track 6"> <h3>Track 6</h3> </div> <!-- Track 7 --> <div class="track" data-src="https://example.com/sample-track-7.mp3"> <img src="https://via.placeholder.com/300x200?text=Track+7" alt="Track 7"> <h3>Track 7</h3> </div> <!-- Track 8 --> <div class="track" data-src="https://example.com/sample-track-8.mp3"> <img src="https://via.placeholder.com/300x200?text=Track+8" alt="Track 8"> <h3>Track 8</h3> </div> <!-- Track 9 --> <div class="track" data-src="https://example.com/sample-track-9.mp3"> <img src="https://via.placeholder.com/300x200?text=Track+9" alt="Track 9"> <h3>Track 9</h3> </div> <!-- Track 10 --> <div class="track" data-src="https://example.com/sample-track-10.mp3"> <img src="https://via.placeholder.com/300x200?text=Track+10" alt="Track 10"> <h3>Track 10</h3> </div>
+    </div>
 
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('video', {
-            height: '169',
-            width: '300',
-            videoId: '8ZNA37j58MQ', // Default video
-            playerVars: {
-                'controls': 0,
-                'showinfo': 0,
-                'rel': 0
-            },
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        // Search functionality
+        document.getElementById('searchBar').addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+            const tracks = document.querySelectorAll('.track');
+            tracks.forEach(track => {
+                const title = track.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(searchValue)) {
+                    track.style.display = 'block';
+                } else {
+                    track.style.display = 'none';
+                }
+            });
         });
-    }
 
-    function onPlayerReady(event) {
-        updateProgress();
-    }
-
-    function playPause() {
-        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-            player.pauseVideo();
-        } else {
-            player.playVideo();
-        }
-    }
-
-    function muteUnmute() {
-        if (player.isMuted()) {
-            player.unMute();
-        } else {
-            player.mute();
-        }
-    }
-
-    function updateProgress() {
-        if (progressInterval) {
-            clearInterval(progressInterval);
-        }
-        progressInterval = setInterval(function() {
-            if (player && player.getDuration) {
-                var duration = player.getDuration();
-                var currentTime = player.getCurrentTime();
-                var progressPercentage = (currentTime / duration) * 100;
-                progressBar.style.width = progressPercentage + '%';
-            }
-        }, 1000);
-    }
-
-    function seekVideo(event) {
-        var progressBarContainer = event.currentTarget;
-        var rect = progressBarContainer.getBoundingClientRect();
-        var offsetX = event.clientX - rect.left;
-        var totalWidth = progressBarContainer.clientWidth;
-        var progressPercentage = offsetX / totalWidth;
-        var duration = player.getDuration();
-        player.seekTo(duration * progressPercentage, true);
-    }
-
-    function loadVideo(videoId, title) {
-        player.loadVideoById(videoId);
-        document.querySelector('.video-title').innerText = title;
-    }
-
-    function filterVideos() {
-        var input = document.getElementById('searchInput').value.toLowerCase();
-        var items = document.querySelectorAll('.playlist-item');
-        items.forEach(item => {
-            var title = item.querySelector('.video-title').innerText.toLowerCase();
-            item.style.display = title.includes(input) ? '' : 'none';
+        // Play selected track
+        document.querySelectorAll('.track').forEach(track => {
+            track.addEventListener('click', () => {
+                const src = track.getAttribute('data-src');
+                const audioPlayer = document.getElementById('audioPlayer');
+                audioPlayer.src = src;
+                audioPlayer.play();
+            });
         });
-    }
-
-    window.onload = function() {
-        const savedVolume = localStorage.getItem('volume');
-        if (savedVolume) {
-            player.setVolume(savedVolume);
-        }
-    };
-
-    function onPlayerStateChange(event) {
-        if (event.data === YT.PlayerState.ENDED) {
-            // Optional: handle video end event
-        }
-    }
-</script>
-
+    </script>
 </body>
 </html>
