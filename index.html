@@ -3,11 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scodify</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Scodify Embedded</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .full-screen {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        iframe {
+            flex-grow: 1;
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <div class="full-screen">
+        <h1>Scodify Website Embedded</h1>
         <iframe src="https://scodify236.github.io/scodify/" title="Scodify"></iframe>
     </div>
 </body>
