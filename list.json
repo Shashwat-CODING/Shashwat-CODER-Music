@@ -21,10 +21,8 @@
         "https://invidious.catspeed.cc"
     ],
     "hyperpipe": [
-        "https://musicapi.reallyaweso.me",
-        "https://hpapi.ggtyler.dev",
-        "https://hyperpipeapi.darkness.services",
-        "https://musicapi.adminforge.de"
+        "https://musicapi.adminforge.de",
+        "https://hpapi.ggtyler.dev"
     ],
     "unified": 5
 }
