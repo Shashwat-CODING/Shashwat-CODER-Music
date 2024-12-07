@@ -30,7 +30,7 @@
         "https://hpapi.ggtyler.dev"
     ],
     "cobalt": "https://cobalt-api.kwiatekmiki.com",
-    "proxy": "https://invidious.jing.rocks",
+    "proxy": "https://redirector.googlevideo.com",
     "unified": 4,
     "fallback": "https://video-api-transform.vercel.app/api"
 }
