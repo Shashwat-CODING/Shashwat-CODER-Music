@@ -15,21 +15,14 @@
     ],
     "invidious": [
         "https://invidious.private.coffee",
-        "https://invidious.reallyaweso.me",
-        "https://iv.ggtyler.dev",
         "https://invidious.adminforge.de",
-        "https://invidious.technicalvoid.dev",
+        "https://iv.ggtyler.dev",
         "https://invidious.jing.rocks",
         "https://invidious.catspeed.cc"
     ],
     "hyperpipe": [
-        "https://musicapi.reallyaweso.me",
-        "https://hpapi.ggtyler.dev",
-        "https://musicapi.adminforge.de"
+        "https://musicapi.adminforge.de",
+        "https://hpapi.ggtyler.dev"
     ],
-    "cobalt": "https://cobalt-api.kwiatekmiki.com",
-    "proxy": "https://invidious.jing.rocks",
-    "unified": 4,
-    "fallback": "https://video-api-transform.vercel.app/api"
-}
+    "unified": 5
 }
