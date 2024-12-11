@@ -29,7 +29,7 @@
         "https://hpapi.ggtyler.dev"
     ],
     "cobalt": "https://cobalt-api.kwiatekmiki.com",
-    "proxy": "https://redirector.googlevideo.com",
+    "proxy": "https://invidious.adminforge.de",
     "unified": 4,
     "fallback": "https://video-api-transform.vercel.app/api"
 }
