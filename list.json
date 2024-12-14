@@ -3,6 +3,9 @@
         "https://yt-metadata-shashwat.vercel.app",
     ],
     "invidious": [
+        "https://invidious.adminforge.de",
+        "https://iv.ggtyler.dev",
+        "https://invidious.private.coffee"
     ],
     "hyperpipe": [
         "https://musicapi.reallyaweso.me",
