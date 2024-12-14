@@ -1,6 +1,6 @@
 {
     "piped": [
-        "yt-metadata-shashwat.vercel.app",
+        "https://yt-metadata-shashwat.vercel.app",
         "https://raagheaven-services.vercel.app/api",
         "https://video-api-transform.vercel.app/api",
         "https://pipedapi.adminforge.de",
@@ -8,7 +8,11 @@
         "https://pipedapi.kavin.rocks",
         "https://pipedapi-libre.kavin.rocks",
         "https://pipedapi.ducks.party",
-        "https://pipedapi.drgns.space"
+        "https://pipedapi.drgns.space",
+        "https://pipedapi.smnz.de",
+        "https://piped-api.lunar.icu",
+        "https://pipedapi.leptons.xyz",
+        "https://api.piped.yt"
     ],
     "invidious": [
         "https://invidious.reallyaweso.me",
