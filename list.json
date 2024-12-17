@@ -1,7 +1,7 @@
 {
     "piped": [
         "https://yt-metadata-shashwat.vercel.app",
-        "https://raagheaven-services.vercel.app/api"
+        "https://raagheaven-services.vercel.app"
     ],
     "invidious": [
         "https://invidious.reallyaweso.me",
