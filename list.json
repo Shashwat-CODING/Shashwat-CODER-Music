@@ -1,11 +1,12 @@
 {
     "piped": [
-        "https://pipedapi.leptons.xyz",
-        "https://raagheaven-services.vercel.app",
-        "https://yt-metadata-shashwat.vercel.app"
+        "https://pipedapi.drgns.space",
+        "https://raagheaven-services.vercel.app"
     ],
     "invidious": [
-        "https://invidious.nikkosphere.com"
+        "https://inv.clovius.club",
+        "https://invidious.nikkosphere.com",
+        "https://iv.ggtyler.dev"
     ],
     "cobalt": "https://cobalt-api.kwiatekmiki.com"
 }
