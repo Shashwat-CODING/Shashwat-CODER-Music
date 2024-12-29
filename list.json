@@ -1,6 +1,7 @@
 {
     "piped": [
         "https://pipedapi.drgns.space",
+         "https://pipedapi-libre.kavin.rocks",
         "https://raagheaven-services.vercel.app"
     ],
     "invidious": [
