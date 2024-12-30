@@ -5,9 +5,9 @@
         "https://raagheaven-services.vercel.app"
     ],
     "invidious": [
+        "https://raag.timelessnesses.me",
         "https://inv.clovius.club",
-        "https://invidious.nikkosphere.com",
-        "https://iv.ggtyler.dev"
+        "https://invidious.nikkosphere.com"
     ],
     "cobalt": "https://cobalt-api.kwiatekmiki.com"
 }
