@@ -1,13 +1,12 @@
 {
     "piped": [
-        "https://pipedapi.drgns.space",
-         "https://pipedapi-libre.kavin.rocks",
+        "https://pipedapi.reallyaweso.me",
         "https://raagheaven-services.vercel.app"
     ],
     "invidious": [
         "https://raagstream.us.kg",
         "https://inv.clovius.club",
-        "https://invidious.nikkosphere.com"
-    ],
-    "cobalt": "https://cobalt-api.kwiatekmiki.com"
+        "https://invidious.nikkosphere.com",
+        "https://iv.ggtyler.dev"
+    ]
 }
